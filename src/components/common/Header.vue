@@ -2,7 +2,7 @@
     <div class="header">
        <el-header>
         <div class="icon" @click="homePage">
-            <img src="/static/img/u128.png" alt="">
+            <img src="/static/img/u1289.png" alt="">
         </div>
         <div class="header_title">
           <p><span>捕影主机检查系统</span></p>
@@ -108,10 +108,10 @@ export default {
           sessionStorage.clear();
           break;
         case 'personal':
-          this.$router.push('/personal/home');
+          this.$router.push('/home');
           break;
         case 'checkRecord':
-          this.$router.push('/personal/checkRecord');
+          this.$router.push('/checkRecord');
           break;
       }
       // if(command == 'loginout'){
@@ -283,7 +283,7 @@ export default {
 }
 .el-dropdown-menu__item:hover{
   color: #409EFF;
-  background: #324157;
+  background: #324157 !important;
 }
 .username_class{
   padding: 0 20px;

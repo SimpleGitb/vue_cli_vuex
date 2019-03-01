@@ -45,12 +45,13 @@ export default new Router({
                     meta: { title: '个人中心'},
                     children: [
                         {
-                            path: '/personal/home',
+                            path: '/home',
                             component: resolve => require(['../components/page/HomePage.vue'], resolve),
-                            meta: { title: '我的主页', permission: true, keepAlive: true }
+                            meta: { title: '我的主页', permission: true, keepAlive: true },
+                            name:'home'
                         },
                         {
-                            path: '/personal/checkRecord',
+                            path: '/checkRecord',
                             component: resolve => require(['../components/page/CheckRecord.vue'], resolve),
                             meta: { title: '检查记录', permission: true, keepAlive: true },
                             name: 'checkRecord'

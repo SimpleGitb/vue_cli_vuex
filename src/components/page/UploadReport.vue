@@ -920,6 +920,7 @@
 //       require('echarts/lib/component/title')
 //       require('echarts/lib/component/legend')
 import Pagination from './Pagination'
+import echarts from 'echarts'
 export default {
   name: 'uploadreport',
   data: function () {
@@ -1146,6 +1147,7 @@ export default {
       var _self = this;
       this.$axios.get(process.env.API_HOST+"/api/report/show/"+this.collapseType+"?report_id="+this.paramsId+"&attr_name="+this.attr_name+"&page="+this.currentPage+"&pageSize="+ this.pageSize,config).then((res) => {
         var data =res.data;
+        _self.loading = false;
         // this.report = data.report_overview[0];
         // this.total = data.total;
         _self.resultProcess2 = data.data;

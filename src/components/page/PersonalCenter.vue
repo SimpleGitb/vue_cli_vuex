@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     homePage () {
-      this.$router.push('/personal/home');
+      this.$router.push('/home');
     },
     proFile () {
       this.$router.push('/personal/profile');
@@ -51,7 +51,7 @@ export default {
       this.$router.push('/personal/message');
     },
     checkRecord () {
-      this.$router.push('/personal/checkRecord');
+      this.$router.push('/checkRecord');
     }
   },
   created () {

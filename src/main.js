@@ -8,8 +8,11 @@ import 'element-ui/lib/theme-chalk/index.css';    // 默认主题
 import "babel-polyfill";
 // import './assets/iconfont/iconfont.css';
 import $ from 'jquery'
-import store from './store'
+// import store from './store'
+// 引入echarts
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts
 
 Vue.use(ElementUI, { size: 'small' });
 Vue.prototype.$axios = axios;
@@ -40,5 +43,5 @@ router.beforeEach((to, from, next) => {
 new Vue({
     router,
     render: h => h(App),
-    store
+    // store
 }).$mount('#app');
