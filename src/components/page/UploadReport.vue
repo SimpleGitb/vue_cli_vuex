@@ -1024,7 +1024,6 @@ export default {
             _self.$axios.post(process.env.API_HOST+"api/report/store",{
               id:this.bijiId,
               path_name: this.path_name,
-              list_type:list_type,
               tag:this.dynamicTags.join(','),
               remark:this.textareaText,
               is_update:1
