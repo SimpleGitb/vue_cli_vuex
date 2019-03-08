@@ -220,7 +220,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" style="width:330px;word-break: break-word;">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -230,7 +230,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" style="width:330px;word-break: break-word;">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -1003,7 +1003,7 @@ export default {
       let config = {
           headers: {
               'token':this.token,
-              'username':sessionStorage.name
+              'username':localStorage.name
           }
       };
       this.$axios.post(process.env.API_HOST+"api/report/store",{
@@ -1063,18 +1063,24 @@ export default {
       this.inputValue = '';
     },
     fecthReport(){
-      if(sessionStorage.token){
-        this.token = sessionStorage.token;
+      if(this.$route.query.id){
+        this.paramsId = this.$route.query.id;
+        if(this.$route.query.token){
+          console.log(this.$route.query.token);
+          console.log(this.$route.query.username)
+          localStorage.token = this.$route.query.token;
+          localStorage.name = this.$route.query.username;
+        }
+      }
+      if(localStorage.token){
+        this.token = localStorage.token;
       }
       let config = {
             headers: {
                 'token':this.token,
-                'username':sessionStorage.name
+                'username':localStorage.name
             }
         };
-      if(this.$route.query.id){
-        this.paramsId = this.$route.query.id;
-      }
       if(this.attr_name == 'filecheck'){
         var _self = this;
         this.$axios.get(process.env.API_HOST+"/api/report/show/"+this.collapseType+"?report_id="+this.paramsId+"&attr_name="+this.attr_name+"&page="+this.currentPage+"&pageSize="+ this.pageSize,config).then((res) => {
@@ -1136,7 +1142,7 @@ export default {
       let config = {
             headers: {
                 'token':this.token,
-                'username':sessionStorage.name
+                'username':localStorage.name
             }
         };
       var myChart = echarts.init(document.getElementById('container'));

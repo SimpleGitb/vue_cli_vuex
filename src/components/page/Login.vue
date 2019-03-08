@@ -410,8 +410,8 @@ export default {
         verify_code:this.ruleForm3.authcod
       }).then((res) => {
         // console.log(res.data);
-        sessionStorage.token = res.data.data.token;
-        sessionStorage.name = res.data.data.user_name;
+        localStorage.token = res.data.data.token;
+        localStorage.name = res.data.data.user_name;
         localStorage.username = this.ruleForm3.email;
         // this.$axios.defaults.headers.common['token'] = res.data.data;
         _self.$message.success("登录成功");
@@ -446,9 +446,9 @@ export default {
     //       console.log(data.status);
     //       if (data.status) {
     //         _this.$message.success(data.msg);
-    //         sessionStorage.ms_username = _this.ruleForm.username;
+    //         localStorage.ms_username = _this.ruleForm.username;
     //         _this.$router.push('/');
-    //         // sessionStorage.setItem('ms_username',_this.ruleForm.username);
+    //         // localStorage.setItem('ms_username',_this.ruleForm.username);
     //       } else {
     //         _this.$message.error(data.msg);
     //         setTimeout(function () {

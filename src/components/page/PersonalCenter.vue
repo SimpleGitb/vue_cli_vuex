@@ -66,10 +66,10 @@ export default {
 <style scoped lang="less">
 .personalcenter{
   background: #F0F2F5;
-  padding: 20px 0;
+  // padding: 20px 0;
 }
 .el-container{
-  width: 1120px;
+  // width: 1120px;
   margin: auto;
   // margin-bottom: 60px;
 }
@@ -79,8 +79,11 @@ export default {
   font-size: 18px;
   padding-right: 17px;
 }
+.el-menu{
+  height: 100%;
+}
 .el-menu-vertical-demo{
-  height: 640px;
+  // height: 680px;
 }
 .el-menu-item:hover{
   background-color: #283446 !important;
@@ -92,3 +95,9 @@ export default {
   vertical-align: middle;
 }
 </style>
+<style>
+.el-main {
+  overflow: hidden;
+}
+</style>
+

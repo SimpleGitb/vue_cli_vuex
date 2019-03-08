@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     // username () {
-    //   let username = sessionStorage.getItem('name');
+    //   let username = localStorage.getItem('name');
     //   return username ? username : this.name;
     // }
   },
@@ -103,9 +103,9 @@ export default {
       switch(command){
         case 'loginout':
           window.location.href='/login';
-          // sessionStorage.removeItem(name);
-          // sessionStorage.removeItem(token);
-          sessionStorage.clear();
+          // localStorage.removeItem(name);
+          // localStorage.removeItem(token);
+          localStorage.clear();
           break;
         case 'personal':
           this.$router.push('/home');
@@ -124,7 +124,7 @@ export default {
   mounted () {
     if(this.$route.name != 'login'&&this.$route.name != 'retpass'){
       this.isShow = false;
-      let username = sessionStorage.getItem('name');
+      let username = localStorage.getItem('name');
       if(username){
         this.name = username;
       }else{
@@ -139,7 +139,7 @@ export default {
     $route(routers){
       if(routers.name != 'login'&&routers.name != 'retpass'){
         this.isShow = false;
-        let username = sessionStorage.getItem('name');
+        let username = localStorage.getItem('name');
         if(username){
           this.name = username;
         }else{
@@ -164,7 +164,7 @@ export default {
 .icon img {
   border-width: 0px;
   position: absolute;
-  left: 130px;
+  left: 30px;
   top: 10px;
   width: 40px;
   height: 40px;
@@ -172,7 +172,7 @@ export default {
 }
 .header_title{
   position: absolute;
-  left: 190px;
+  left: 90px;
   line-height: 60px;
   font-weight: 400;
   font-style: normal;

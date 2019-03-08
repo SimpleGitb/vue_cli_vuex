@@ -53,14 +53,14 @@ export default {
       // form.append("user_name", "admin");
       // console.log(form.get("file_name"));
       var _self = this;
-      if(sessionStorage.token){
-        this.token = sessionStorage.token;
+      if(localStorage.token){
+        this.token = localStorage.token;
       }
       let config = {
           headers: {
               'Content-Type': 'multipart/form-data',
               'token':this.token,
-              'username':sessionStorage.name
+              'username':localStorage.name
           },
           onUploadProgress: progressEvent => {
             var complete = (progressEvent.loaded / progressEvent.total * 100 | 0)
