@@ -1,7 +1,7 @@
 <template>
     <div class="message">
         <el-button @click="test">
-
+            {{count}}
         </el-button>
         <div class="login_fields__submit" id="btn">
             <input style="padding: 10px 105px" type="button" value="登录">
@@ -39,8 +39,12 @@ export default {
         }
     },
     computed: {
-
+        count () {
+        return store.state.count;
+        }
     }
 }
+
+
 
 </script>

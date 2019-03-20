@@ -5,7 +5,6 @@
       <el-menu
         default-active="1"
         class="el-menu-vertical-demo"
-        background-color="#314057"
         text-color="#CCCCCC"
         active-text-color="#fff">
         <el-menu-item index="1" @click="homePage">
@@ -45,10 +44,10 @@ export default {
       this.$router.push('/home');
     },
     proFile () {
-      this.$router.push('/personal/profile');
+      this.$router.push('/dataModification');
     },
     message () {
-      this.$router.push('/personal/message');
+      this.$router.push('/myinformation');
     },
     checkRecord () {
       this.$router.push('/checkRecord');
@@ -82,10 +81,19 @@ export default {
 .el-menu{
   height: 100%;
 }
-.el-menu-vertical-demo{
-  // height: 680px;
+.el-menu{
+  background: #314057;
 }
 .el-menu-item:hover{
+  background-color: #283446 !important;
+}
+// .el-menu-item:active{
+//   background-color: #283446 !important;
+// }
+// .el-menu-item:visited{
+//   background-color: #283446 !important;
+// }
+.el-menu-item:focus{
   background-color: #283446 !important;
 }
 .el-menu-item img{

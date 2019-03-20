@@ -60,7 +60,7 @@ export default {
           headers: {
               'Content-Type': 'multipart/form-data',
               'token':this.token,
-              'username':localStorage.name
+              'userid':localStorage.userid
           },
           onUploadProgress: progressEvent => {
             var complete = (progressEvent.loaded / progressEvent.total * 100 | 0)

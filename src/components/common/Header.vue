@@ -2,7 +2,7 @@
     <div class="header">
        <el-header>
         <div class="icon" @click="homePage">
-            <img src="/static/img/u1289.png" alt="">
+            <img src="/static/img/u128.png" alt="">
         </div>
         <div class="header_title">
           <p><span>捕影主机检查系统</span></p>
@@ -27,10 +27,11 @@
         <div class="Login_right" @click="personCenter" :class="{show:isShow}">
           <el-dropdown @command="handleCommand" trigger="hover" placement="bottom-start"
           background-color="#545c64"
-  text-color="#fff"
-  active-text-color="rgb(255, 208, 75)">
+          text-color="#fff"
+          active-text-color="rgb(255, 208, 75)">
             <span class="el-dropdown-link">
-              <img src="/static/img/u157.png" alt="">
+              <!-- <img src="/static/img/u157.png" alt=""> -->
+              <img :src="api+'/api/home/getAvator/?url='+imgurl" alt="">
             </span>
             <el-dropdown-menu slot="dropdown">
               <div class="username_class">
@@ -40,10 +41,10 @@
               <el-dropdown-item command="personal">
                 <img src="/static/img/u176.png" alt="">我的主页
               </el-dropdown-item>
-              <el-dropdown-item command="checkRecord">
+              <el-dropdown-item command="dataModification">
                   <i class="iconfont icon-ziyuan"></i>资料修改
               </el-dropdown-item>
-              <el-dropdown-item command="checkRecord">
+              <el-dropdown-item command="myinformation">
                 <img src="/static/img/u2083.png" alt="">我的消息
               </el-dropdown-item>
               <el-dropdown-item command="checkRecord">
@@ -54,13 +55,13 @@
               </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          
         </div>
        </el-header>
     </div>
 </template>
 <script>
 import bus from '../common/bus';
+import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -68,14 +69,10 @@ export default {
       isB: false,
       detection: false,
       name:'admin',
-      isShow:true
+      isShow:true,
+      imgurl:'',
+      api:''
     }
-  },
-  computed: {
-    // username () {
-    //   let username = localStorage.getItem('name');
-    //   return username ? username : this.name;
-    // }
   },
   methods: {
     assetClick () {
@@ -110,6 +107,12 @@ export default {
         case 'personal':
           this.$router.push('/home');
           break;
+        case 'dataModification':
+          this.$router.push('/dataModification');
+          break;
+        case 'myinformation':
+          this.$router.push('/myinformation');
+          break;
         case 'checkRecord':
           this.$router.push('/checkRecord');
           break;
@@ -121,10 +124,12 @@ export default {
       // }
     }
   },
-  mounted () {
+  created () {
+    this.api = process.env.API_HOST;
     if(this.$route.name != 'login'&&this.$route.name != 'retpass'){
       this.isShow = false;
       let username = localStorage.getItem('name');
+      this.imgurl = localStorage.imgurl;
       if(username){
         this.name = username;
       }else{
@@ -135,21 +140,38 @@ export default {
       this.isShow = true;
     }
   },
-  watch:{
-    $route(routers){
-      if(routers.name != 'login'&&routers.name != 'retpass'){
-        this.isShow = false;
-        let username = localStorage.getItem('name');
-        if(username){
-          this.name = username;
+  computed: {
+    count () {
+      return this.$store.state.count;
+    },
+    ...mapState([
+      'count'
+    ])
+  },
+  watch: {
+      count: {
+          handler: function(val){
+              if(val){// 已获取
+                  this.imgurl = val;
+              }
+          },
+          immediate: true
+      },
+      $route(routers){
+        if(routers.name != 'login'&&routers.name != 'retpass'){
+          this.isShow = false;
+          let username = localStorage.getItem('name');
+          this.imgurl = localStorage.imgurl;
+          if(username){
+            this.name = username;
+          }else{
+            // window.location.href='/login';
+            this.$router.push('/login');
+          }
         }else{
-          // window.location.href='/login';
-          this.$router.push('/login');
+          this.isShow = true;
         }
-      }else{
-        this.isShow = true;
       }
-    }
   }
 }
 
@@ -198,6 +220,7 @@ export default {
   width: 42px;
   height: 42px;
   margin-top: 9px;
+  border-radius: 40px;
 }
 .Login_right .el-dropdown{
   width: 100%;
@@ -226,9 +249,6 @@ export default {
   }
 }
 @media screen and (max-width: 1366px) {
-  .icon img {
-    left: 50px;
-  }
   .yunsee{
     left: 400px;
   }

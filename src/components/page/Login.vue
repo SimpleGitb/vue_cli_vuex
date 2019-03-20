@@ -413,6 +413,8 @@ export default {
         localStorage.token = res.data.data.token;
         localStorage.name = res.data.data.user_name;
         localStorage.username = this.ruleForm3.email;
+        localStorage.userid = res.data.data.user_id.$oid;
+        localStorage.imgurl = res.data.data.avatar;
         // this.$axios.defaults.headers.common['token'] = res.data.data;
         _self.$message.success("登录成功");
         setTimeout(function(){

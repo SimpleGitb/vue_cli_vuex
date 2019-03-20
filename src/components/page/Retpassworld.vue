@@ -3,6 +3,7 @@
       <div class="container_box">
         <div class="form_left">
           <el-tabs>
+            <!-- {{count}} -->
               <header class="registered">找回密码 <span @click="rebackPhoneEmail"><a>{{rebackPhoneEmailTxt}}</a></span></header>
               <div class="registerPanel">
                 <div v-bind:class="{ phonepanel:true,color:isPhone }">
@@ -77,7 +78,7 @@
 </template>
 <script>
 // import store from '@/vuex/store'
-// import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
   name: 'retpassworld',
   data: function () {
@@ -342,21 +343,23 @@ export default {
       }else{
         this.phoneEmailContext = "输入邮箱地址";
       }
+    },
+    buttonM(){
+      this.$store.commit('repalce', 'rrrrrrr');
     }
   },
   mounted () {
-
+    
   },
   // computed 计算属性
-  // computed: {
-  //   count () {
-  //     return this.$store.state.count;
-  //   }
-  // }
   computed: {
-   
+    count () {
+      return this.$store.state.count;
+    },
+    ...mapState([
+      'count'
+    ])
   }
-
 }
 </script>
 <style scoped lang="less">

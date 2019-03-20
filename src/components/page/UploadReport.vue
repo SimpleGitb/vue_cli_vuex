@@ -147,7 +147,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.tag&&result.tag!='unknown'">
-                      <div slot="content" style="width:330px" :disabled="result.match_file_attr == ''?true:false">
+                      <div slot="content" class="tooltip_content" :disabled="result.match_file_attr == ''?true:false">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -157,7 +157,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -220,7 +220,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px;word-break: break-word;">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -230,7 +230,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px;word-break: break-word;">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -246,7 +246,7 @@
                   <el-col :span="3">
                     <!-- 网络连接 -->
                     <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.net_connect != 'empty'">
-                      <div slot="content" style="min-width:330px">
+                      <div slot="content" class="tooltip_content">
                         <p>pid:{{result.net_connect[0].PID}}</p>
                         <template v-for="(net) in result.net_connect">
                           <div :key="net.index">
@@ -306,7 +306,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -316,7 +316,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -372,7 +372,7 @@
                 <el-row>
                   <el-col :span="8">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -382,7 +382,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -436,7 +436,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -446,7 +446,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -559,7 +559,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -567,13 +567,13 @@
                       </el-button>
                     </el-tooltip>
                     <span v-else>无</span>
-                    <template v-for="match in result.match_yara">
-                      <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
-                          {{match.content}}
+                    <template v-for="matchpro in result.match_yara">
+                      <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="matchpro.index">
+                        <div slot="content" class="tooltip_content">
+                          {{matchpro.content}}
                         </div>
                         <el-button>
-                          <el-tag v-text="match.name" :type="match.level=='medium'?'warning':'danger'"></el-tag>
+                          <el-tag v-text="matchpro.name" :type="matchpro.level=='medium'?'warning':'danger'"></el-tag>
                         </el-button>
                       </el-tooltip>
                     </template>
@@ -697,7 +697,7 @@
                 <el-row>
                   <el-col :span="5">
                     <el-tooltip class="item" effect="dark" placement="right-start" :disabled="result.match_file_attr == ''?true:false" v-if="result.check_result&&result.check_result!='unknown'">
-                      <div slot="content" style="width:330px">
+                      <div slot="content" class="tooltip_content">
                         {{result.match_file_attr}}
                       </div>
                       <el-button>
@@ -707,7 +707,7 @@
                     <span v-else>无</span>
                     <template v-for="match in result.match_yara">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.match_yara" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -820,7 +820,7 @@
                   <el-col :span="5">
                     <template v-for="match in result.tag">
                       <el-tooltip class="item" effect="dark" placement="right-start" v-if="result.tag" :key="match.index">
-                        <div slot="content" style="width:330px">
+                        <div slot="content" class="tooltip_content">
                           {{match.content}}
                         </div>
                         <el-button>
@@ -861,7 +861,7 @@
     <el-dialog
     title="添加标签"
     :visible.sync="infoVisible"
-    width="25%"
+    width="480px"
     :close-on-click-modal="false"
     :before-close="handleClose">
     <span class="markDialog">
@@ -870,17 +870,31 @@
             <li :class="{active:value3Clone == 1}" @click="value3Clone = 1">黑名单</li>
             <li :class="{active:value3Clone == 2}" @click="value3Clone = 2">白名单</li>
         </ul> -->
-        <div style="clear:both;">
+        <div style="line-height: 32px;">
           <span>标签：</span>
-          <el-tag
-            :key="tag"
-            v-for="tag in dynamicTags"
-            closable
-            :disable-transitions="false"
-            @close="handleCloseTag(tag)">
-            {{tag}}
-          </el-tag>
+          <span v-if="inputVisible" @click="showInput" style="cursor: pointer;">
+            <el-tag
+              :key="tag"
+              v-for="tag in dynamicTags"
+              :disable-transitions="false"
+              @close="handleCloseTag(tag)"
+              >
+              {{tag}}
+            </el-tag>
+          </span>
           <el-select
+            v-model="inputValue" 
+            placeholder="请选择"
+            @change="handleInputConfirm()"
+            v-else>
+            <el-option
+              v-for="item in options"
+              :key="item.label_name"
+              :label="item.label_name"
+              :value="item.label_name">
+            </el-option> 
+          </el-select>
+          <!-- <el-select
             v-model="inputValue" 
             placeholder="请选择"
             v-if="inputVisible"
@@ -892,7 +906,7 @@
               :value="item.label_name">
             </el-option> 
           </el-select>
-          <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 更新标签</el-button>
+          <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 更新标签</el-button> -->
         </div>
         <div style="clear:both;padding-top:30px;display:flex;flex-wrap:wrap">
           <div><span>备注：</span></div>
@@ -1006,7 +1020,7 @@ export default {
               'username':localStorage.name
           }
       };
-      this.$axios.post(process.env.API_HOST+"api/report/store",{
+      this.$axios.post(process.env.API_HOST+"/api/report/store",{
         id:this.bijiId,
         path_name: this.path_name,
         // list_type:list_type,
@@ -1021,7 +1035,7 @@ export default {
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            _self.$axios.post(process.env.API_HOST+"api/report/store",{
+            _self.$axios.post(process.env.API_HOST+"/api/report/store",{
               id:this.bijiId,
               path_name: this.path_name,
               tag:this.dynamicTags.join(','),
@@ -1051,7 +1065,7 @@ export default {
       this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
     },
     showInput() {
-      this.inputVisible = true;
+      this.inputVisible = false;
     },
     handleInputConfirm() {
       let inputValue = this.inputValue;
@@ -1059,17 +1073,17 @@ export default {
         this.dynamicTags = [];
         this.dynamicTags.push(inputValue);
       }
-      this.inputVisible = false;
+      this.inputVisible = true;
       this.inputValue = '';
     },
     fecthReport(){
       if(this.$route.query.id){
         this.paramsId = this.$route.query.id;
         if(this.$route.query.token){
-          console.log(this.$route.query.token);
-          console.log(this.$route.query.username)
+          // console.log(this.$route.query.token);
+          // console.log(this.$route.query.username)
           localStorage.token = this.$route.query.token;
-          localStorage.name = this.$route.query.username;
+          localStorage.userid = this.$route.query.userid;
         }
       }
       if(localStorage.token){
@@ -1078,7 +1092,7 @@ export default {
       let config = {
             headers: {
                 'token':this.token,
-                'username':localStorage.name
+                'userid':localStorage.userid
             }
         };
       if(this.attr_name == 'filecheck'){
@@ -1623,6 +1637,9 @@ ul{
 }
 .redclass{
   color: #fa5555 !important;
+}
+.tooltip_content{
+  width:330px;word-break: break-word;
 }
 </style>
 <style>

@@ -47,6 +47,9 @@ const store = new Vuex.Store({
       },
       decrement(state,n){
           state.count -= n;
+      },
+      repalce(state,n){
+          state.count = n;
       }
   },
   //数据业务逻辑

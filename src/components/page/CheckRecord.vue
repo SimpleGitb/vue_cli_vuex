@@ -1,8 +1,8 @@
 <template>
 <div class="checkrecord">
-  <div class="headimg">
+  <!-- <div class="headimg">
     <img src="/static/img/u2320.png" alt="">
-  </div>
+  </div> -->
   <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" @change="CollapseMethod" size="small">
     <el-radio-button :label="false">按顺序分类</el-radio-button>
     <el-radio-button :label="true">按主机分类</el-radio-button>
@@ -319,7 +319,7 @@ export default {
       this.config = {
         headers: {
             'token':this.token,
-            'username':localStorage.name
+            'userid':localStorage.userid
         }
       };
       this.tableData = [];
@@ -476,8 +476,8 @@ export default {
 .checkrecord{
   background: #ffffff;
   min-height: 795px;
-  padding: 0 20px;
-  padding-top: 65px;
+  padding: 20px 20px;
+  // padding-top: 65px;
 }
 .headimg{
     position: absolute;
@@ -520,6 +520,14 @@ export default {
 }
 .el-collapse{
   border: 0;
+}
+@media screen and (max-width: 1566px) {
+.btn-list{
+  .orange{
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
 }
 </style>
 <style>

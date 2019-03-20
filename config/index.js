@@ -12,9 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target:'http://buying_admin_api.yunsee.cn',
-        // target: 'http://192.168.30.135',
-        changeOrigin: false,
+        // target:'http://buying_admin_api.yunsee.cn',
+        target: 'http://192.168.30.135',
+        changeOrigin: true,
         pathRewrite: {
           '^/api': '/'
         }

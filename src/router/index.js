@@ -51,11 +51,24 @@ export default new Router({
                             name:'home'
                         },
                         {
+                            path: '/dataModification',
+                            component: resolve => require(['../components/page/DataModification.vue'], resolve),
+                            meta: { title: '资料修改', permission: true, keepAlive: true },
+                            name: 'dataModification'
+                        },
+                        {
+                            path: '/myinformation',
+                            component: resolve => require(['../components/page/MyInformation.vue'], resolve),
+                            meta: { title: '我的消息', permission: true, keepAlive: true },
+                            name: 'myinformation'
+                        },
+                        {
                             path: '/checkRecord',
                             component: resolve => require(['../components/page/CheckRecord.vue'], resolve),
                             meta: { title: '检查记录', permission: true, keepAlive: true },
                             name: 'checkRecord'
-                        }
+                        },
+                        
                     ]
                 },
                 {
